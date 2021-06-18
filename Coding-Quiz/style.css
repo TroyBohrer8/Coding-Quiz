@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.quizBox {
+    display: block;
+    border: solid 1px #000;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.introBox h1 {
+    padding: 10px;
+}
+
+.startBtn {
+    text-align: center;
+}
