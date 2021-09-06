@@ -33,6 +33,7 @@
     padding: 10px;
 }
 
-.startBtn {
-    text-align: center;
+#startButton {
+    margin: auto;
+    width: 200px;
 }

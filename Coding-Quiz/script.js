@@ -1,3 +1,4 @@
+var quizBox = document.querySelector('.quizBox');
 var startButton = document.getElementById('startButton');
 var timer = document.getElementById('timer');
 var timeCount = document.getElementById('timercounter');
@@ -13,7 +14,7 @@ var storedScores = JSON.parse(localStorage.getItem('userData'));
 
 var questions = [
     {
-        title: "Which of the following is NOT a primitive",
+        title: "Which of the following is NOT a primitive?",
         choices: ["string", "index", "boolean", "number"],
         answer: "index"
     },
@@ -56,16 +57,50 @@ function startQuiz() {
     startButton.classList.add("d-none")
     quizQuestions.classList.remove("d-none")
     nextQuestion = questions[currentIndex]
+    quizBox.classList.add("d-none")
+    // console.log(nextQuestion)
+    displayQuestion(nextQuestion)
 
-// quizTime();
+quizTime();
 
 };
 
+// Timer
 function quizTime() {
     var timeInterval = setInterval(function() {
         timer.innerText = count;
         count--;
     }, 1000);
 };
+
+// Display Questions
+function displayQuestion(question) {
+    titeItem.innerText = question.title;
+    question.choices.forEach(element => {
+        let button = document.createElement("button");
+        button.className = "btn-primary btn-block text-left";
+        button.innerText = element;
+        quizAnswers.appendChild(button);
+        button.addEventListener('click', displayNextQuestion)
+    });
+};
+
+function displayNextQuestion(e) {
+    currentIndex++;
+    if (currentIndex < questions.length) {
+            correction(e.target.innerText === nextQuestion.answer)
+            quizAnswers.innerHTML = " ";
+        if (currentIndex < questions.length) {
+            nextQuestion = questions[currentIndex]
+            displayQuestion(nextQuestion);
+        } else {
+            currentIndex = 0;
+            displayQuestion(nextQuestion);
+        }
+    } else {
+        console.log("endgame")
+        endgame();
+    }
+}
 
 
