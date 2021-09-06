@@ -20,9 +20,7 @@
         <a href="#">Highscores</a>
       </div>
       <div class="timer">
-        <h6 id="timecounter">
-          Timer :<span id="timer">75</span>
-        </h6>
+        <h6 id="timecounter">Timer :<span id="timer">75</span></h6>
       </div>
     </header>
 
@@ -43,15 +41,16 @@
     </div>
 
     <!--Start Quiz Button-->
-    <div class="startBtn">
-      <button>Start Quiz</button>
+    <div>
+      <button class="btn btn-primary btn-lg" id="startButton">Start Quiz</button>
     </div>
 
-    <div class="container">
-      <div id="question-container" class="hide">
-        <div id="question"></div>
-      </div>
+    <div class="quiz-questions d-none" id="quiz-questions">
+        <h3 class="text-info text-center" id="title-item"></h3>
+        <div class="quiz-answers mt-5 mb-5" id="quiz-answers"></div>
+        <h1 id="alert"></h1>
     </div>
-    <script href="script.js"></script>
   </body>
+
+  <script src="script.js"></script>
 </html>
