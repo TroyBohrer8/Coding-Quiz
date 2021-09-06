@@ -5,6 +5,21 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
+.gameHeader {
+    padding: 20px;
+    background-color: blue;
+    color: white;
+}
+
+.highScores a {
+    color: white;
+    text-decoration: none;
+}
+
+.timer {
+    text-align: end;
+}
+
 .quizBox {
     display: block;
     border: solid 1px #000;
