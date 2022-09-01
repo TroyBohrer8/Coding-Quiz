@@ -17,7 +17,7 @@ body {
 }
 
 .start,
-.rule-container,
+.rules-container,
 .quiz-container,
 .results-container {
   position: absolute;
@@ -82,8 +82,13 @@ body {
 .rules-container .rules-list .rules{
   margin: 5px 0;
   font-size: 17px;
+  font-weight: 300;
+  color: #000;
+}
+
+.rules-container .rules-list .rules span {
   font-weight: 600;
-  color: #007bff;
+  color: #0a76e2
 }
 
 /* Rules Buttons */

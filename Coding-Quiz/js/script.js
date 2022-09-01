@@ -1,107 +1,22 @@
-var quizBox = document.querySelector('.quizBox');
-var startButton = document.getElementById('startButton');
-var timer = document.getElementById('timer');
-var timeCount = document.getElementById('timercounter');
-var titeItem = document.getElementById('title-item');
-var quizQuestions = document.getElementById('quiz-questions');
-var quizAnswers = document.getElementById('quiz-answers');
-var nextQuestion;
-var currentIndex = 0;
-var count = 75;
-var info = document.getElementById('info');
-var quizScores = [];
-var storedScores = JSON.parse(localStorage.getItem('userData'));
+const startBtn = document.querySelector(".start");
+const rulesBox = document.querySelector(".rules-container");
+const exitBtn = document.querySelector(".exit");
+const continueBtn = document.querySelector(".continue");
+const quizBox = document.querySelector(".quiz-container");
 
-var questions = [
-    {
-        title: "Which of the following is NOT a primitive?",
-        choices: ["string", "index", "boolean", "number"],
-        answer: "index"
-    },
+// Prompt Rules
+startBtn.addEventListener("click", () => {
+  rulesBox.classList.add("showRules");
+  console.log("hello");
+});
 
-    {
-        title: "Which comparison should we use to check if the user's answer matches the correct answer?",
-        choices: ["!==", "=", "===", "$=="],
-        answer: "==="
-    },
+// Exit
+exitBtn.addEventListener("click", () => {
+    rulesBox.classList.remove("showRules");
+})
 
-    {
-        title: "Whats the maximun amount of values can we store in an array?",
-        choices: ["1", "5", "As many as we want", "100"],
-        answer: "As many as we want"
-    },
-
-    {
-        title: "What type of variable does NOT exist?",
-        choices: ["VAR", "EXP", "LET", "CONST"],
-        answer: "EXP"
-    },
-
-        {
-        title: "What does CSS stand for?",
-        choices: ["Cool Style Selectors", "Cascading Syle Sheets", "Complex Styling Sites", "Creative Source Sheets"],
-        answer: "Cascading Style Sheets"
-    },
-]
-
-
-
-// startQuiz function is called when start button is clicked
-
-startButton.addEventListener('click', startQuiz); 
-function startQuiz() {
-    if(storedScores !== null) {
-        quizScores = storedScores;
-    }
-    
-    startButton.classList.add("d-none")
-    quizQuestions.classList.remove("d-none")
-    nextQuestion = questions[currentIndex]
-    quizBox.classList.add("d-none")
-    // console.log(nextQuestion)
-    displayQuestion(nextQuestion)
-
-quizTime();
-
-};
-
-// Timer
-function quizTime() {
-    var timeInterval = setInterval(function() {
-        timer.innerText = count;
-        count--;
-    }, 1000);
-};
-
-// Display Questions
-function displayQuestion(question) {
-    titeItem.innerText = question.title;
-    question.choices.forEach(element => {
-        let button = document.createElement("button");
-        button.className = "btn-primary btn-block text-left";
-        button.innerText = element;
-        quizAnswers.appendChild(button);
-        button.addEventListener('click', displayNextQuestion)
-    });
-};
-
-function displayNextQuestion(e) {
-    currentIndex++;
-    if (currentIndex < questions.length) {
-            correction(e.target.innerText === nextQuestion.answer)
-            quizAnswers.innerHTML = " ";
-        if (currentIndex < questions.length) {
-            nextQuestion = questions[currentIndex]
-            displayQuestion(nextQuestion);
-        } else {
-            currentIndex = 0;
-            displayQuestion(nextQuestion);
-        }
-    } else {
-        console.log("endgame")
-        endgame();
-    }
-};
-
-
-
+// Start Quiz
+continueBtn.addEventListener("click", () => {
+    rulesBox.classList.remove("showRules");
+    quizBox.classList.add("showQuiz")
+})
