@@ -32,15 +32,15 @@ var questions = [
     },
 
     {
-        title: "Which of the following is NOT a primitive",
-        choices: ["string", "index", "boolean", "number"],
-        answer: "index"
+        title: "What type of variable does NOT exist?",
+        choices: ["VAR", "EXP", "LET", "CONST"],
+        answer: "EXP"
     },
 
         {
-        title: "Which of the following is NOT a primitive",
-        choices: ["string", "index", "boolean", "number"],
-        answer: "index"
+        title: "What does CSS stand for?",
+        choices: ["Cool Style Selectors", "Cascading Syle Sheets", "Complex Styling Sites", "Creative Source Sheets"],
+        answer: "Cascading Style Sheets"
     },
 ]
 
@@ -101,6 +101,7 @@ function displayNextQuestion(e) {
         console.log("endgame")
         endgame();
     }
-}
+};
+
 
 
