@@ -201,7 +201,7 @@ section .answers {
   display: block;
 }
 
-section .answers .answer {
+section .answers span {
   background: aliceblue;
   border: 1px solid #84c5fe;
   border-radius: 5px;

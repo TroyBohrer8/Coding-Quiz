@@ -3,11 +3,11 @@ const rulesBox = document.querySelector(".rules-container");
 const exitBtn = document.querySelector(".exit");
 const continueBtn = document.querySelector(".continue");
 const quizBox = document.querySelector(".quiz-container");
+const questionsBox = document.querySelector(".questions");
 const resultsBox = document.querySelector(".results-container");
 const restartQuiz = document.querySelector(".restart");
 const quitQuiz = document.querySelector(".quit");
 // let timeValue = 15;
-// let que_count = 0;
 // let que_numb = 1;
 // let userScore = 0;
 // let counter;
@@ -17,7 +17,6 @@ const quitQuiz = document.querySelector(".quit");
 // Questions
 let questions = [
   {
-    id: 1,
     question: "What does HTML stand for?",
     answer: "Hyper Text Markup Language",
     options: [
@@ -26,42 +25,27 @@ let questions = [
       "Hyper Text Multiple Language",
       "Hyper Tool Multi Language",
     ],
-    id: 2,
-    question: "What does HTML stand for?",
-    answer: "Hyper Text Markup Language",
-    options: [
-      "Hyper Text Preprocessor",
-      "Hyper Text Markup Language",
-      "Hyper Text Multiple Language",
-      "Hyper Tool Multi Language",
-    ],
-    id: 3,
-    question: "What does HTML stand for?",
-    answer: "Hyper Text Markup Language",
-    options: [
-      "Hyper Text Preprocessor",
-      "Hyper Text Markup Language",
-      "Hyper Text Multiple Language",
-      "Hyper Tool Multi Language",
-    ],
-    id: 4,
-    question: "What does HTML stand for?",
-    answer: "Hyper Text Markup Language",
-    options: [
-      "Hyper Text Preprocessor",
-      "Hyper Text Markup Language",
-      "Hyper Text Multiple Language",
-      "Hyper Tool Multi Language",
-    ],
-    id: 5,
-    question: "What does HTML stand for?",
-    answer: "Hyper Text Markup Language",
-    options: [
-      "Hyper Text Preprocessor",
-      "Hyper Text Markup Language",
-      "Hyper Text Multiple Language",
-      "Hyper Tool Multi Language",
-    ],
+  },
+  {
+    question: "How many bits are in 1 byte?",
+    answer: "8",
+    options: ["2", "10", "8", "12"],
+  },
+  {
+    question:
+      "What would you use to iterate over something over and over again?",
+    answer: "Loop",
+    options: ["Loop", "Array", "Object", "Boolean"],
+  },
+  {
+    question: "Which hex-color is the color white?",
+    answer: "#fff",
+    options: ["#000", "#fff", "#e8a", "#1fa"],
+  },
+  {
+    question: "What symbols are used to create an array?",
+    answer: "[]",
+    options: ["{}", "()", "<>", "[]"],
   },
 ];
 
@@ -79,8 +63,26 @@ exitBtn.addEventListener("click", () => {
 continueBtn.addEventListener("click", () => {
   rulesBox.classList.remove("showRules");
   quizBox.classList.add("showQuiz");
-//   showQuestions(0);
-//   queCounter(1);
-//   startTimer(15);
-//   startTimeLine(0);
+  showQuestions(0);
+  //   queCounter(1);
+  //   startTimer(15);
+  //   startTimeLine(0);
 });
+
+let questionNumber = 0;
+
+// Show Questions
+function showQuestions(index) {
+  const questionText = document.querySelector(".questions");
+  const optionText = document.querySelector(".answers");
+  let questionElement = document.createElement("span");
+  let optionElement = document.createElement("span");
+  questionElement.innerHTML = questions[index].question;
+  questionText.appendChild(questionElement);
+  
+
+  for (let opt in questions[index].options) {
+    optionElement.innerHTML = opt;
+    optionText.appendChild(optionElement)
+  }
+}
