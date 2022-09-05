@@ -84,7 +84,6 @@ function showQuestions(index) {
   // Loop through options and append each one
   for (let i = 0; i < questions[index].options.length; i++) {
     let optionElement = document.createElement("span");
-    console.log(questions[index].options[i]);
     optionElement.textContent = questions[index].options[i];
     optionText.appendChild(optionElement);
   }
