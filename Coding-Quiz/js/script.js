@@ -76,13 +76,16 @@ function showQuestions(index) {
   const questionText = document.querySelector(".questions");
   const optionText = document.querySelector(".answers");
   let questionElement = document.createElement("span");
-  let optionElement = document.createElement("span");
+
+  // Append question
   questionElement.innerHTML = questions[index].question;
   questionText.appendChild(questionElement);
-  
 
-  for (let opt in questions[index].options) {
-    optionElement.innerHTML = opt;
-    optionText.appendChild(optionElement)
+  // Loop through options and append each one
+  for (let i = 0; i < questions[index].options.length; i++) {
+    let optionElement = document.createElement("span");
+    console.log(questions[index].options[i]);
+    optionElement.textContent = questions[index].options[i];
+    optionText.appendChild(optionElement);
   }
 }
