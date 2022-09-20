@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "./Pyramid.css";
 
 const Pyramid = () => {
+  const [question, setQuestion] = useState(1);
+
   const moneyData = [
     { id: 1, amount: "$ 100" },
     { id: 2, amount: "$ 200" },
@@ -23,7 +26,11 @@ const Pyramid = () => {
     <div className="pyramid">
       <ul className="moneyList">
         {moneyData.map((item) => (
-          <li className="moneyListItem">
+          <li
+            className={
+              question == item.id ? "moneyListItem active" : "moneyListItem"
+            }
+          >
             <span className="number">{item.id}</span>
             <span className="amount">{item.amount}</span>
           </li>

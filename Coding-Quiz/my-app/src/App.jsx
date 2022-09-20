@@ -1,6 +1,6 @@
-import Main from "./components/main/Main"
-import Pyramid from "./components/pyramid/Pyramid"
-import "./App.css"
+import Main from "./components/main/Main";
+import Pyramid from "./components/pyramid/Pyramid";
+import "./App.css";
 
 function App() {
   return (
